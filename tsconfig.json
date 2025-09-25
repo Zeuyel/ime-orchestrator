@@ -5,20 +5,15 @@
     "inlineSources": true,
     "module": "ESNext",
     "target": "ES6",
-    "allowJs": true,
-    "noImplicitAny": true,
+    "lib": ["ES6", "DOM"],
     "moduleResolution": "node",
-    "importHelpers": true,
-    "isolatedModules": true,
-    "strictNullChecks": true,
-    "lib": [
-      "DOM",
-      "ES5",
-      "ES6",
-      "ES7"
-    ]
-  },
-  "include": [
-    "**/*.ts"
-  ]
+    "noImplicitAny": false,
+    "removeComments": false,
+    "preserveConstEnums": true,
+    "allowJs": false,
+    "esModuleInterop": true,
+    "strict": false,
+    "types": ["node"],
+    "skipLibCheck": true
+  }
 }
