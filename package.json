@@ -1,0 +1,20 @@
+{
+  "name": "ime-orchestrator",
+  "version": "0.1.0",
+  "description": "Coordinate IME switching: math-only in Insert mode for Obsidian.",
+  "main": "main.js",
+  "scripts": {
+    "dev": "node esbuild.config.mjs",
+    "build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^16.11.6",
+    "@codemirror/view": "^6.25.0",
+    "@codemirror/language": "^6.10.2",
+    "builtin-modules": "3.3.0",
+    "esbuild": "0.17.3",
+    "obsidian": "latest",
+    "typescript": "4.7.4"
+  }
+}

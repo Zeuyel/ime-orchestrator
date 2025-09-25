@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "module": "ESNext",
+    "target": "ES6",
+    "lib": ["ES6", "DOM"],
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "removeComments": false,
+    "preserveConstEnums": true,
+    "allowJs": false,
+    "esModuleInterop": true,
+    "strict": false,
+    "types": ["node"],
+    "skipLibCheck": true
+  }
+}

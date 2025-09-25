@@ -1,0 +1,25 @@
+{
+  "macos": {
+    "pathToIM": "/opt/homebrew/bin",
+    "cmdOnInsertEnter": "im-select im.rime.inputmethod.Squirrel.Hans",
+    "cmdOnInsertLeave": "macism com.apple.keylayout.ABC",
+    "cmdOnInsertEnterMathEnter": "macism com.apple.keylayout.ABC",
+    "cmdOnInsertEnterMathLeave": "im-select im.rime.inputmethod.Squirrel.Hans"
+  },
+  "windows": {
+    "pathToIM": "%USERPROFILE%\\AppData\\Local\\bin",
+    "cmdOnInsertEnter": "im-select.exe 2052",
+    "cmdOnInsertLeave": "im-select.exe 1033",
+    "cmdOnInsertEnterMathEnter": "im-select.exe 1033",
+    "cmdOnInsertEnterMathLeave": "im-select.exe 2052"
+  },
+  "linux": {
+    "pathToIM": "/usr/bin",
+    "cmdOnInsertEnter": "ibus engine cn.some-ime",
+    "cmdOnInsertLeave": "ibus engine xkb:us::eng",
+    "cmdOnInsertEnterMathEnter": "ibus engine xkb:us::eng",
+    "cmdOnInsertEnterMathLeave": "ibus engine cn.some-ime"
+  },
+  "statusBar": false,
+  "asyncExec": true
+}
