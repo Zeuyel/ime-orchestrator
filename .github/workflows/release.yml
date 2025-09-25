@@ -1,0 +1,56 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "[0-9]+.[0-9]+.[0-9]+"  # e.g. 0.1.1
+  workflow_dispatch: {}
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: npm
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Build plugin
+        run: npm run build
+
+      - name: Sanity check versions and prepare versions.json
+        run: |
+          TAG="${GITHUB_REF_NAME}"
+          PKG_VER=$(node -p "require('./package.json').version")
+          MAN_VER=$(node -p "require('./manifest.json').version")
+          MIN_APP=$(node -p "require('./manifest.json').minAppVersion")
+          if [ "$PKG_VER" != "$MAN_VER" ]; then
+            echo "package.json($PKG_VER) != manifest.json($MAN_VER)" >&2; exit 1;
+          fi
+          if [ "$MAN_VER" != "$TAG" ]; then
+            echo "manifest.json($MAN_VER) != tag($TAG)" >&2; exit 1;
+          fi
+          if [ ! -f versions.json ]; then
+            echo "{ \"$TAG\": \"$MIN_APP\" }" > versions.json
+          else
+            node -e "const f='versions.json';const fs=require('fs');const m=JSON.parse(fs.readFileSync(f,'utf8'));if(!m['$TAG']){m['$TAG']='$MIN_APP';fs.writeFileSync(f,JSON.stringify(m,null,2));}"
+          fi
+
+      - name: Upload GitHub Release assets
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            manifest.json
+            main.js
+            styles.css
+            versions.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
