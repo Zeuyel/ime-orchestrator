@@ -1,6 +1,6 @@
 {
   "name": "ime-orchestrator",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Coordinate IME switching: math-only in Insert mode for Obsidian.",
   "main": "main.js",
   "scripts": {

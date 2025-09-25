@@ -1,9 +1,9 @@
 {
   "id": "ime-orchestrator",
   "name": "IME Orchestrator",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "minAppVersion": "0.15.0",
-  "description": "Coordinate IME switching: math-only in Insert mode.",
+  "description": "Vim-mode IME orchestration: Insert/Leave + math-block switching (recommended: im-select).",
   "author": "XXM",
   "authorUrl": "https://xxm.plus",
   "isDesktopOnly": true
